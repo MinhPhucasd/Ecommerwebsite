@@ -1,0 +1,380 @@
+/* src/signup/signUp.css */
+
+/* --- Global/Body (nên đặt trong src/index.css) --- */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: white;
+    color: black;
+  }
+  
+  /* --- Helper Container --- */
+  .signup-container {
+    max-width: 80rem; /* max-w-7xl */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem; /* px-4 */
+    padding-right: 1rem;
+  }
+  @media (min-width: 640px) { /* sm: */
+    .signup-container {
+      padding-left: 1.5rem; /* sm:px-6 */
+      padding-right: 1.5rem;
+    }
+  }
+  @media (min-width: 1024px) { /* lg: */
+    .signup-container {
+      padding-left: 2rem; /* lg:px-8 */
+      padding-right: 2rem;
+    }
+  }
+  
+  /* --- Top Bar --- */
+  .signup-top-bar {
+    background-color: black;
+    color: white;
+    font-size: 0.75rem; /* text-xs */
+  }
+  .signup-top-bar-content {
+    display: flex;
+    justify-content: center; /* justify-center */
+    align-items: center;
+    padding-top: 0.25rem; /* py-1 */
+    padding-bottom: 0.25rem;
+  }
+  .signup-top-bar p {
+    text-align: center;
+  }
+  .signup-shop-link {
+    font-weight: 600; /* font-semibold */
+    cursor: pointer;
+  }
+  .signup-shop-link:hover {
+    text-decoration: underline;
+  }
+  @media (min-width: 640px) { /* sm: */
+    .signup-top-bar {
+      font-size: 0.875rem; /* sm:text-sm */
+    }
+    .signup-top-bar-content {
+      padding-top: 0.5rem; /* sm:py-2 */
+      padding-bottom: 0.5rem;
+    }
+  }
+  
+  /* --- Navigation --- */
+  .signup-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1rem; /* py-4 */
+    padding-bottom: 1rem;
+  }
+  .signup-nav-left {
+    display: flex;
+    align-items: center;
+    gap: 2rem; /* space-x-8 */
+  }
+  .signup-nav-logo {
+    font-weight: 600; /* font-semibold */
+    font-size: 0.875rem; /* text-sm */
+    cursor: default;
+    user-select: none;
+  }
+  /* Container for nav links to apply gap */
+  .signup-nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem; /* Replicate space-x-8 */
+  }
+  .signup-nav-links a {
+    font-size: 0.75rem; /* text-xs */
+    text-decoration: none; /* Base */
+    color: inherit; /* Inherit color */
+  }
+  .signup-nav-links a:hover {
+    text-decoration: underline;
+  }
+  .signup-nav-links a.active { /* Style for active NavLink */
+    text-decoration: underline;
+    /* Add other active styles if needed */
+  }
+  .signup-search-container {
+    display: none; /* hidden */
+    align-items: center;
+    background-color: #f3f4f6; /* bg-gray-100 */
+    border-radius: 0.375rem; /* rounded-md */
+    padding: 0.25rem 0.75rem; /* px-3 py-1 */
+  }
+  .signup-search-input {
+    background-color: transparent;
+    font-size: 0.75rem; /* text-xs */
+    border: none;
+  }
+  .signup-search-input::placeholder {
+    color: #9ca3af; /* placeholder-gray-400 */
+  }
+  .signup-search-input:focus {
+    outline: none;
+  }
+  .signup-search-button {
+    margin-left: 0.5rem; /* ml-2 */
+    color: #6b7280; /* text-gray-500 */
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+  @media (min-width: 640px) { /* sm: */
+    .signup-nav {
+      padding-top: 1.5rem; /* sm:py-6 */
+      padding-bottom: 1.5rem;
+    }
+    .signup-nav-logo {
+      font-size: 1rem; /* sm:text-base */
+    }
+     .signup-nav-links a {
+      font-size: 0.875rem; /* sm:text-sm */
+    }
+    .signup-search-container {
+      display: flex;
+    }
+    .signup-search-input {
+      font-size: 0.875rem; /* sm:text-sm */
+    }
+  }
+  
+  /* --- Main Content --- */
+  .signup-main {
+    display: flex;
+    flex-direction: column; /* default */
+    align-items: center;
+    gap: 2rem; /* gap-8 */
+    padding-bottom: 5rem; /* pb-20 */
+  }
+  .signup-image-container {
+    flex-shrink: 0; /* flex-shrink-0 */
+    width: 100%;
+  }
+  .signup-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block; /* Remove extra space */
+  }
+  .signup-form-section {
+    width: 100%;
+    max-width: 28rem; /* max-w-md */
+  }
+  .signup-form-title {
+    font-size: 1.125rem; /* text-lg */
+    font-weight: 600; /* font-semibold */
+    margin-bottom: 0.25rem; /* mb-1 */
+  }
+  .signup-form-subtitle {
+    font-size: 0.75rem; /* text-xs */
+    margin-bottom: 1.5rem; /* mb-6 */
+  }
+  .signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* space-y-4 */
+  }
+  .signup-form-input {
+    width: 100%;
+    border: none; /* Remove default border */
+    border-bottom: 1px solid #d1d5db; /* border-b border-gray-300 */
+    font-size: 0.75rem; /* text-xs */
+    padding-bottom: 0.5rem; /* Adjust as needed */
+    background-color: transparent; /* Ensure transparent background */
+  }
+  .signup-form-input::placeholder {
+    color: #9ca3af; /* placeholder-gray-400 */
+  }
+  .signup-form-input:focus {
+    outline: none;
+    border-bottom-color: black; /* focus:border-black */
+  }
+  .signup-submit-button {
+    width: 100%;
+    background-color: #dc2626; /* bg-red-600 */
+    color: white;
+    font-size: 0.75rem; /* text-xs */
+    padding: 0.5rem 0; /* py-2 */
+    border-radius: 0.125rem; /* rounded-sm */
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease; /* transition */
+  }
+  .signup-submit-button:hover {
+    background-color: #b91c1c; /* hover:bg-red-700 */
+  }
+  .signup-google-button {
+    width: 100%;
+    margin-top: 0.75rem; /* mt-3 */
+    border: 1px solid #d1d5db; /* border border-gray-300 */
+    border-radius: 0.125rem; /* rounded-sm */
+    padding: 0.5rem 0; /* py-2 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem; /* gap-2 */
+    font-size: 0.75rem; /* text-xs */
+    background-color: white; /* Base */
+    cursor: pointer;
+    transition: background-color 0.2s ease; /* transition */
+  }
+  .signup-google-button:hover {
+    background-color: #f3f4f6; /* hover:bg-gray-100 */
+  }
+  .signup-google-icon {
+    width: 1.25rem; /* w-5 */
+    height: 1.25rem; /* h-5 */
+  }
+  .signup-login-prompt {
+    font-size: 0.75rem; /* text-xs */
+    margin-top: 1rem; /* mt-4 */
+    text-align: center;
+    color: #4b5563; /* text-gray-700 */
+  }
+  .signup-login-link {
+    text-decoration: underline;
+    color: inherit; /* Inherit color */
+  }
+  .signup-login-link:hover {
+    color: black; /* hover:text-black */
+  }
+  @media (min-width: 640px) { /* sm: */
+    .signup-main {
+      flex-direction: row;
+      align-items: flex-start; /* sm:items-start */
+      gap: 5rem; /* sm:gap-20 */
+    }
+    .signup-image-container {
+      width: 480px; /* sm:w-[480px] */
+    }
+    .signup-form-title {
+      font-size: 1.25rem; /* sm:text-xl */
+    }
+    .signup-form-subtitle,
+    .signup-form-input,
+    .signup-submit-button,
+    .signup-google-button,
+    .signup-login-prompt {
+       font-size: 0.875rem; /* sm:text-sm */
+    }
+  }
+  
+  /* --- Footer --- */
+  .signup-footer {
+    background-color: black;
+    color: white;
+    font-size: 0.75rem; /* text-xs */
+  }
+  .signup-footer-grid {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr)); /* grid-cols-1 */
+    gap: 2rem; /* gap-8 */
+    padding-top: 2.5rem; /* py-10 */
+    padding-bottom: 2.5rem;
+  }
+  .signup-footer-column h3, .signup-footer-column h4 {
+    font-weight: 600; /* font-semibold */
+    margin-bottom: 0.5rem; /* mb-2 */
+  }
+  .signup-footer-column h4 {
+    margin-bottom: 0.25rem; /* mb-1 */
+  }
+  .signup-footer-column p {
+    margin-bottom: 0.5rem; /* mb-2 */
+    max-width: 160px; /* max-w-[160px] */
+  }
+  .signup-footer-subscribe-form {
+    display: flex;
+    align-items: center;
+    max-width: 160px;
+  }
+  .signup-footer-subscribe-input {
+    flex-grow: 1;
+    background-color: transparent;
+    border: 1px solid #4b5563; /* border-gray-600 */
+    border-radius: 0.125rem 0 0 0.125rem; /* rounded-l-sm */
+    padding: 0.25rem 0.5rem; /* px-2 py-1 */
+    color: white;
+    font-size: 0.75rem; /* text-xs */
+  }
+  .signup-footer-subscribe-input::placeholder {
+    color: #9ca3af; /* placeholder-gray-400 */
+  }
+  .signup-footer-subscribe-input:focus {
+    outline: none;
+  }
+  .signup-footer-subscribe-button {
+    background-color: black;
+    border: 1px solid #4b5563; /* border-gray-600 */
+    border-radius: 0 0.125rem 0.125rem 0; /* rounded-r-sm */
+    padding: 0.25rem 0.5rem; /* px-2 py-1 */
+    cursor: pointer;
+    border-left: none; /* Add this */
+  }
+  .signup-footer-subscribe-button i {
+    color: white;
+    font-size: 0.75rem; /* text-xs */
+    display: block; /* Prevent icon height issues */
+  }
+  .signup-footer-address {
+    margin-bottom: 0.5rem; /* mb-2 */
+    max-width: 160px;
+  }
+  .signup-footer-link {
+    display: block;
+    margin-bottom: 0.25rem; /* mb-1 */
+    color: inherit;
+    text-decoration: none;
+  }
+  .signup-footer-link:hover {
+    text-decoration: underline;
+  }
+  .signup-footer-apps {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem; /* gap-3 */
+    margin-bottom: 0.75rem; /* mb-3 */
+  }
+  .signup-footer-app-badge {
+    height: 25px;
+    width: auto;
+    display: block;
+  }
+  .signup-footer-socials {
+    display: flex;
+    gap: 1rem; /* space-x-4 */
+    color: white;
+    font-size: 1.125rem; /* text-lg */
+  }
+  .signup-footer-socials a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .signup-footer-socials a:hover {
+    color: #9ca3af; /* hover:text-gray-400 */
+  }
+  .signup-footer-copyright {
+    border-top: 1px solid #374151; /* border-gray-700 */
+    text-align: center;
+    padding: 1rem 0; /* py-4 */
+    font-size: 10px;
+  }
+  @media (min-width: 640px) { /* sm: */
+    .signup-footer {
+      font-size: 0.875rem; /* sm:text-sm */
+    }
+    .signup-footer-grid {
+      grid-template-columns: repeat(6, minmax(0, 1fr)); /* sm:grid-cols-6 */
+    }
+    .signup-footer-column.col-span-2 { /* Specific column span */
+        grid-column: span 2 / span 2;
+    }
+    .signup-footer-copyright {
+        font-size: 0.75rem; /* sm:text-xs */
+    }
+  }

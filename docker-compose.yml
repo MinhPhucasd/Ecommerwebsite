@@ -1,0 +1,72 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:latest # Hoặc một phiên bản cụ thể như mongo:6.0
+    container_name: eshop_mongodb
+    ports:
+      - "27017:27017" # Map port của MongoDB trong container ra máy host
+    volumes:
+      - eshop_mongo_data:/data/db # Persistent data cho MongoDB
+    restart: unless-stopped
+    environment: # (Tùy chọn) Nếu bạn muốn đặt user/pass cho MongoDB từ docker-compose
+      # MONGO_INITDB_ROOT_USERNAME: rootuser
+      # MONGO_INITDB_ROOT_PASSWORD: rootpassword
+      # MONGO_INITDB_DATABASE: eshopDB # Tên database sẽ được tạo nếu chưa có
+      - MONGO_DATA_DIR=/data/db
+      - MONGO_LOG_DIR=/dev/null
+
+  backend:
+    build:
+      context: ./Backend # Đường dẫn đến thư mục chứa Dockerfile của backend
+      dockerfile: Dockerfile
+    container_name: eshop_backend
+    ports:
+      - "3001:3001" # Map port của backend
+    depends_on:
+      - mongodb # Backend sẽ khởi động sau khi mongodb khởi động (không đảm bảo mongodb đã sẵn sàng)
+    volumes:
+      - ./Backend:/usr/src/app # Mount source code để hot-reloading khi phát triển (tùy chọn)
+      - /usr/src/app/node_modules # Không mount node_modules từ host
+    environment:
+      # MONGODB_URI: mongodb://mongodb:27017/eshopDB # Kết nối tới service mongodb trong cùng network
+      # Nếu bạn đặt user/pass cho mongodb ở trên:
+      # MONGODB_URI: mongodb://rootuser:rootpassword@mongodb:27017/eshopDB?authSource=admin
+      MONGODB_URI: "mongodb+srv://522h0008:16849444@eshop.cx92x6o.mongodb.net/YourActualDatabaseName?retryWrites=true&w=majority&appName=EShop" # <-- SỬA YourActualDatabaseName
+      PORT: 3001
+      JWT_SECRET: ${JWT_SECRET} # Lấy từ .env ở thư mục gốc hoặc định nghĩa ở đây
+      GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID}
+      GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET}
+      SESSION_SECRET: ${SESSION_SECRET}
+      FRONTEND_URL: http://localhost:3000 # Hoặc http://frontend:80 nếu frontend cũng trong docker-compose
+      # Các biến môi trường cho email (SendGrid)
+      SENDGRID_API_KEY: ${SENDGRID_API_KEY}
+      EMAIL_FROM_ADDRESS: ${EMAIL_FROM_ADDRESS}
+      EMAIL_FROM_NAME: "E-Shop"
+    restart: unless-stopped
+    # command: npm run dev # Nếu bạn muốn chạy dev server với nodemon trong Docker
+
+  frontend:
+    build:
+      context: ./ecommercewebsite # Đường dẫn đến thư mục chứa Dockerfile của frontend
+      dockerfile: Dockerfile
+      args: # Truyền build-time arguments cho Dockerfile của frontend
+        REACT_APP_API_URL_ARG: http://localhost:3001/api # API URL cho frontend khi build
+        # Hoặc nếu backend cũng trong docker: REACT_APP_API_URL_ARG: http://backend:3001/api
+    container_name: eshop_frontend
+    ports:
+      - "3000:80" # Map port 80 của Nginx trong container ra port 3000 của máy host
+    depends_on:
+      - backend
+    restart: unless-stopped
+    # Nếu bạn muốn chạy dev server của React trong Docker (không khuyến khích cho production)
+    # thay vì build và serve bằng Nginx:
+    # volumes:
+    #   - ./ecommercewebsite:/app
+    #   - /app/node_modules
+    # command: npm start
+    # environment:
+    #   REACT_APP_API_URL: http://localhost:3001/api # Hoặc http://backend:3001/api
+
+volumes:
+  eshop_mongo_data: # Định nghĩa volume để lưu trữ dữ liệu MongoDB

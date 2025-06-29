@@ -1,0 +1,70 @@
+/* ecommercewebsite/src/index.css */
+
+/* 1. Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap'); /* Thêm weight 700 nếu bạn dùng font-bold nhiều */
+
+/* 2. Tailwind CSS Directives */
+
+/* 3. Base Styles (Tùy chỉnh cho body hoặc các element gốc nếu cần) */
+body {
+  margin: 0; /* Giữ lại reset margin mặc định */
+  font-family: 'Inter', sans-serif; /* Áp dụng font Inter làm font chính */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Bạn có thể đặt màu chữ mặc định, màu nền mặc định cho toàn bộ ứng dụng ở đây nếu muốn,
+     ví dụ: color: #0f172a; (màu text-slate-900)
+            background-color: #F5F7FA; (màu nền admin layout của bạn)
+     Tuy nhiên, việc này cũng có thể được xử lý bằng class Tailwind trên thẻ body trong public/index.html
+     hoặc trên div gốc của App.js/LayoutAdmin.js
+  */
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* 4. Custom Utility Classes hoặc Component Styles (Nếu muốn dùng global) */
+
+/* Custom star rating color (OK nếu dùng ở nhiều nơi) */
+.star-yellow {
+  color: #facc15; /* Tailwind yellow-400 */
+  margin-right: 0.125rem; /* Thêm khoảng cách nếu muốn */
+}
+
+/* Scrollbar styling (OK nếu muốn áp dụng global cho các element có class .scrollbar-thin) */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1; /* Tailwind slate-300 */
+  border-radius: 10px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background-color: #94a3b8; /* Tailwind slate-400 */
+}
+
+/* Bạn có thể định nghĩa thêm các component tùy chỉnh ở đây sử dụng @layer components { ... }
+   hoặc các utility tùy chỉnh với @layer utilities { ... } nếu cần.
+   Ví dụ:
+   @layer components {
+     .btn-primary {
+       @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded;
+     }
+   }
+*/
+
+/* src/index.css */
+body {
+  margin: 0; /* Reset margin mặc định */
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #F5F7FA; /* Màu nền chung nếu muốn, hoặc để từng layout tự quyết */
+  color: #0f172a; /* Màu chữ chung nếu muốn */
+}
+

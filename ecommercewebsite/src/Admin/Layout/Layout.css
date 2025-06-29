@@ -1,0 +1,26 @@
+/* src/Admin/Layout/Layout.css */
+.admin-layout-container {
+  display: flex;
+  min-height: 100vh;
+  /* background-color: #f1f5f9; /* Hoặc màu nền từ body của HTML gốc */
+}
+
+.admin-main-area-wrapper {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  min-width: 0; /* Giúp ngăn chặn lỗi co giãn của flex item */
+}
+
+.admin-content-outlet { /* Class cho thẻ <main> chứa <Outlet /> */
+  flex-grow: 1;
+  padding: 2rem; /* << --- PADDING CHUNG CHO TẤT CẢ CÁC TRANG ADMIN */
+  overflow-y: auto; /* Cho phép scroll dọc nếu nội dung tràn */
+  width: 100%; /* Đảm bảo nó chiếm hết chiều rộng được cấp */
+
+  /* TÙY CHỌN: Nếu muốn giới hạn chiều rộng nội dung chính của tất cả các trang admin */
+  max-width: 1280px; /* Ví dụ */
+  margin-left: auto;
+  margin-right: auto;
+}

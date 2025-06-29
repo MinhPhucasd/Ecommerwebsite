@@ -1,0 +1,231 @@
+/* src/admin/manageProducts/manageProducts.css */
+
+/* --- Global/Body (nên đặt trong src/index.css) --- */
+body {
+  font-family: 'Inter', sans-serif; /* Assuming Inter is loaded globally */
+  background-color: #f8fafd; /* bg-[#f8fafd] */
+  color: #0f172a; /* text-[#0f172a] */
+  padding: 2rem; /* p-6 */
+  min-height: 100vh;
+}
+
+/* Custom star rating color (Nếu không muốn inline style) */
+.star-yellow {
+  color: #facc15;
+}
+
+/* --- Main Container --- */
+.manage-products-container {
+  max-width: 100%; /* max-w-full */
+  
+}
+@media (min-width: 768px) { /* md: */
+  .manage-products-container {
+    max-width: 65rem; /* md:max-w-7xl */
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* --- Page Title --- */
+.manage-products-title {
+  font-weight: 600; /* font-semibold */
+  font-size: 1.125rem; /* text-lg */
+  margin-bottom: 1rem; /* mb-4 */
+}
+
+/* --- Top Navigation & Date Select --- */
+.manage-products-top-nav-container {
+  display: flex;
+  flex-direction: column; /* default *  /
+  gap: 1rem; /* gap-4 */
+  margin-bottom: 1rem; /* mb-4 */
+}
+.manage-products-nav-buttons {
+  display: flex;
+  gap: 0.5rem; /* space-x-2 */
+}
+.manage-products-nav-button {
+   font-size: 0.75rem; /* text-xs */
+  font-weight: 400; /* font-normal */
+  border-radius: 0.25rem; /* rounded */
+  padding: 0.25rem 1rem; /* px-4 py-1 */
+  border: 1px solid transparent; /* cơ sở cho hover */
+  cursor: pointer;
+  text-decoration: none; /* Quan trọng cho NavLink để loại bỏ gạch chân mặc định của link */
+  display: inline-block; /* Để padding và các thuộc tính block hoạt động đúng */
+  text-align: center; /* Căn giữa text nếu cần */
+}
+.manage-products-nav-button.active { /* My Products */
+  background-color: #1e1e1e;
+  color: white;
+}
+.manage-products-nav-button.inactive { /* Add Product, Violations */
+  background-color: #f8fafd;
+  color: #475569;
+}
+.manage-products-nav-button.inactive:hover {
+  border-color: #cbd5e1; /* hover:border-[#cbd5e1] */
+}
+.manage-products-date-select {
+  background-color: #f8fafd;
+  border: 1px solid #cbd5e1;
+  color: #475569;
+  font-size: 0.75rem; /* text-xs */
+  border-radius: 0.25rem; /* rounded */
+  padding: 0.25rem 1rem; /* px-4 py-1 */
+  cursor: pointer;
+  appearance: none; /* Remove default arrow if custom arrow is added */
+}
+@media (min-width: 768px) { /* md: */
+  .manage-products-top-nav-container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+/* --- Filter Form --- */
+.manage-products-filter-form {
+  background-color: #f8fafd; /* bg-[#f8fafd] */
+  border-radius: 0.5rem; /* rounded-lg */
+  padding: 1rem; /* p-4 */
+  margin-bottom: 1.5rem; /* mb-6 */
+  display: flex;
+  flex-direction: column; /* default */
+  gap: 1rem; /* space-y-4 */
+}
+.filter-form-group {
+  display: flex;
+  flex-direction: column; /* default */
+  gap: 0.5rem; /* space-y-2 */
+  flex: 1; /* flex-1 for md layout */
+}
+.filter-form-label {
+  font-size: 0.75rem; /* text-xs */
+  color: #475569;
+  white-space: nowrap;
+  width: 90px; /* w-[90px] */
+}
+.filter-form-input {
+  border: 1px solid #cbd5e1;
+  border-radius: 0.25rem; /* rounded */
+  font-size: 0.75rem; /* text-xs */
+  padding: 0.25rem 0.5rem; /* px-2 py-1 */
+  width: 100%;
+}
+.filter-form-input.small { /* For stock/sales inputs */
+  width: 50px; /* w-[50px] */
+}
+.filter-form-range-separator {
+  font-size: 0.75rem; /* text-xs */
+  color: #475569;
+  margin: 0 0.25rem; /* For spacing around '-' */
+}
+.filter-form-buttons {
+  display: flex;
+  gap: 0.5rem; /* space-x-2 */
+  margin-top: 0.5rem; /* mt-2 for md layout */
+}
+.filter-form-button {
+  background-color: #1e1e1e;
+  color: white;
+  font-size: 0.75rem; /* text-xs */
+  font-weight: 400; /* font-normal */
+  border-radius: 0.25rem; /* rounded */
+  padding: 0.5rem 1.5rem; /* px-6 py-2 */
+  border: none;
+  cursor: pointer;
+}
+@media (min-width: 768px) { /* md: */
+  .manage-products-filter-form {
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5rem; /* md:space-x-6 */
+  }
+  .filter-form-group {
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem; /* md:space-x-4 */
+  }
+  .filter-form-input.full-width-md {
+     max-width: 180px; /* max-w-[180px] for product name/category */
+  }
+  .filter-form-buttons {
+    margin-top: 0; /* md:mt-0 */
+  }
+}
+
+/* --- Total Products Count --- */
+.manage-products-total-count {
+  margin-bottom: 1rem; /* mb-4 */
+  font-size: 0.75rem; /* text-xs */
+  font-weight: 600; /* font-semibold */
+  color: #0f172a;
+}
+
+/* --- Products Table --- */
+.manage-products-table {
+  width: 100%;
+  font-size: 0.75rem; /* text-xs */
+  color: #475569;
+  background-color: #f8fafd; /* bg-[#f8fafd] */
+  border-radius: 0.5rem; /* rounded-lg */
+  overflow: hidden; /* overflow-hidden */
+  border-collapse: collapse; /* Ensure borders work nicely */
+}
+.manage-products-table thead {
+  background-color: #f1f5f9; /* bg-[#f1f5f9] */
+  color: #475569;
+}
+.manage-products-table th {
+  padding: 0.75rem 1rem; /* py-3 px-4 */
+  text-align: left;
+  font-weight: 400; /* font-normal */
+}
+.manage-products-table tbody {
+  /* divide-y handled by tr border */
+}
+.manage-products-table tbody tr {
+  background-color: white;
+  border-bottom: 1px solid #f1f5f9; /* divide-[#f1f5f9] */
+}
+.manage-products-table tbody tr:last-child {
+  border-bottom: none; /* Remove border for last row */
+}
+.manage-products-table td {
+  padding: 1rem; /* py-4 px-4 */
+  vertical-align: middle; /* Align items nicely */
+}
+.product-table-name-cell {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* space-x-4 */
+}
+.product-table-image {
+  width: 2.5rem; /* w-10 */
+  height: 2.5rem; /* h-10 */
+  object-fit: contain;
+}
+.product-table-name {
+  color: #0f172a;
+  font-weight: 600; /* font-semibold */
+  font-size: 13px; /* text-[13px] */
+}
+.product-table-data { /* For Price, Stock */
+  font-weight: 400; /* font-normal */
+  font-size: 13px; /* text-[13px] */
+}
+.product-table-rating {
+  font-weight: 400; /* font-normal */
+  font-size: 13px; /* text-[13px] */
+}
+.product-table-status {
+  font-weight: 400; /* font-normal */
+  font-size: 13px; /* text-[13px] */
+  color: #2563eb; /* text-blue-600 approx */
+  cursor: pointer;
+}
+.product-table-status:hover {
+  text-decoration: underline;
+}

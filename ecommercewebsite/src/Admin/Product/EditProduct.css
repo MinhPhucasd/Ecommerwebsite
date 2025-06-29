@@ -1,0 +1,146 @@
+.edit-product-container {
+  padding: 20px;
+  background-color: #f8f9fa; /* Light background */
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+}
+
+.edit-product-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.edit-product-page-title {
+  color: #343a40; /* Dark gray title */
+  margin: 0;
+}
+
+.back-to-manage-link-edit {
+  text-decoration: none;
+  color: #007bff; /* Blue link */
+  font-size: 0.9em;
+  transition: color 0.3s ease;
+}
+
+.back-to-manage-link-edit:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+.edit-product-form-section {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.edit-product-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-product-form-field {
+  margin-bottom: 15px;
+}
+
+.edit-product-form-label {
+  display: block;
+  margin-bottom: 5px;
+  color: #495057; /* Medium gray label text */
+  font-weight: bold;
+}
+
+.edit-product-form-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ced4da; /* Light gray border */
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.edit-product-form-input[type="number"] {
+  -moz-appearance: textfield; /* Firefox */
+}
+
+.edit-product-form-input::-webkit-outer-spin-button,
+.edit-product-form-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.edit-product-form-input[type="text"],
+.edit-product-form-input[type="number"],
+.edit-product-form-input[type="url"] {
+  /* Specific styling if needed */
+}
+
+.edit-product-form-input::placeholder {
+  color: #adb5bd; /* Light gray placeholder text */
+}
+
+.edit-product-form-input:focus {
+  border-color: #007bff; /* Blue focus border */
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  outline: none;
+}
+
+.edit-product-form-input[type="text"]:disabled,
+.edit-product-form-input[type="number"]:disabled,
+.edit-product-form-input[type="url"]:disabled,
+.edit-product-form-input textarea:disabled {
+  background-color: #e9ecef; /* Light gray background for disabled fields */
+  cursor: not-allowed;
+}
+
+.edit-product-form-input textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.edit-product-form-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.edit-product-button {
+  padding: 10px 15px;
+  border-radius: 4px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  border: none;
+}
+
+.edit-product-button:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.edit-product-button.submit {
+  background-color: #28a745; /* Green submit button */
+  color: #fff;
+}
+
+.edit-product-button.submit:hover:not(:disabled) {
+  background-color: #1e7e34;
+}
+
+.edit-product-button.cancel {
+  background-color: #6c757d; /* Gray cancel button */
+  color: #fff;
+}
+
+.edit-product-button.cancel:hover:not(:disabled) {
+  background-color: #545b62;
+}
+
+.edit-product-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

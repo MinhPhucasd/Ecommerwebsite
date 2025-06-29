@@ -1,0 +1,22 @@
+# General
+.DS_Store
+Thumbs.db
+
+# Node modules
+Backend/node_modules/
+ecommercewebsite/node_modules/
+node_modules/ # Nếu bạn vẫn giữ node_modules ở gốc
+
+# Environment variables
+Backend/.env
+ecommercewebsite/.env # Nếu frontend cũng có file .env
+.env # Nếu bạn có file .env ở gốc
+
+# Build folders (ví dụ cho frontend React/Vue)
+ecommercewebsite/build/
+ecommercewebsite/dist/
+
+# Log files
+*.log
+npm-debug.log*
+# ... các file log khác

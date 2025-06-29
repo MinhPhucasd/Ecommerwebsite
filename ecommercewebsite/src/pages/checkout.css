@@ -1,0 +1,147 @@
+/* src/pages/checkout.css */
+.checkout-page-header .cart-container {
+    /* Tái sử dụng container từ cart.css */
+    /* ... có thể thêm style riêng nếu header trang checkout khác ... */
+}
+
+.checkout-main-content {
+    /* display: flex; đã chuyển style vào inline */
+    /* justify-content: space-between; */
+    /* gap: 50px; */
+    /* Khoảng cách giữa form và summary */
+    /* flex-wrap: wrap; */
+    /* Cho phép xuống dòng trên màn hình nhỏ */
+}
+
+.checkout-billing-details-section {
+    /* flex: 3 1 500px; đã chuyển style vào inline */
+    /* min-width: 300px; */
+}
+
+.checkout-billing-details-section h2,
+.checkout-order-summary-section h3 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.checkout-form .form-row {
+    margin-bottom: 1rem;
+}
+
+.checkout-form .form-row label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #7D8184;
+    /* Màu xám nhạt cho label */
+    font-size: 0.875rem;
+}
+
+.checkout-form input[type="text"],
+.checkout-form input[type="email"],
+.checkout-form input[type="tel"],
+.checkout-form select {
+    /* Thêm select nếu bạn dùng */
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #F5F5F5;
+    /* Nền xám nhạt */
+    box-sizing: border-box;
+    /* Để padding không làm tăng kích thước tổng */
+}
+
+.checkout-form input:focus {
+    border-color: #DB4444;
+    outline: none;
+}
+
+
+.checkout-form .checkbox-row {
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.checkout-form .checkbox-row input[type="checkbox"] {
+    width: auto;
+    /* Reset width cho checkbox */
+    margin-right: 0.5rem;
+}
+
+.checkout-form .checkbox-row label {
+    margin-bottom: 0;
+    font-weight: normal;
+    color: #000;
+    /* Màu chữ đen bình thường */
+}
+
+
+.checkout-summary-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+}
+
+.checkout-summary-item img {
+    margin-right: 10px;
+}
+
+/* Tái sử dụng class từ cart.css nếu phù hợp */
+.cart-total-box {
+    /* ... */
+}
+
+.cart-total-title {
+    /* ... */
+}
+
+.cart-total-row {
+    /* ... */
+}
+
+.cart-total-row.total {
+    /* ... */
+}
+
+.cart-checkout-button {
+    /* Nút Place Order */
+    /* ... style chung cho nút checkout ... */
+    background-color: #DB4444;
+    color: white;
+    border: none;
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    width: 100%;
+    /* Cho nút Place Order full width */
+    margin-top: 1.5rem;
+}
+
+.cart-checkout-button:hover {
+    background-color: #c43232;
+}
+
+.cart-checkout-button:disabled {
+    background-color: #e0e0e0;
+    cursor: not-allowed;
+}
+
+/* Responsive adjustments */
+/* @media (max-width: 768px) {
+    .checkout-main-content {
+        flex-direction: column;
+    }
+    .checkout-billing-details-section,
+    .checkout-order-summary-section {
+        flex-basis: 100%; 
+        min-width: unset;
+    }
+} */

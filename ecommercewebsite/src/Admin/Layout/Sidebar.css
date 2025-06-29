@@ -1,0 +1,187 @@
+/* src/admin/sidebar/adminSidebar.css */
+
+/* --- Global/Body (nên đặt trong src/index.css nếu dùng chung) --- */
+body {
+  font-family: 'Inter', sans-serif; /* Assuming Inter is loaded globally */
+  /* background-color and min-height should be on the main layout wrapper */
+}
+
+/* --- Sidebar --- */
+.admin-sidebar {
+  background-color: white;
+  width: 5rem; /* w-20 default (icon-only) */
+  border-right: 1px solid #e5e7eb; /* border-r border-gray-200 */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh; /* h-screen */
+  padding-top: 1.5rem; /* py-6 */
+  padding-bottom: 1.5rem;
+  position: fixed; /* Optional: make sidebar fixed if main content scrolls */
+  left: 0;
+  top: 0;
+  z-index: 20; /* Ensure it's above other content if fixed */
+}
+.admin-sidebar-top-section,
+.admin-sidebar-bottom-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem; /* space-y-8 for top, space-y-2 for bottom approx */
+}
+.admin-sidebar-logo-container {
+  text-align: center; /* For text below logo */
+}
+.admin-sidebar-logo-img {
+  /* mx-auto handled by items-center on parent */
+  display: block; /* Ensure it's block for margin auto to work if needed */
+}
+.admin-sidebar-logo-text {
+  font-size: 0.75rem; /* text-xs */
+  color: #6b7280; /* text-gray-500 */
+  margin-top: 0.25rem; /* mt-1 */
+  font-weight: 600; /* font-semibold */
+}
+.admin-sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* space-y-6 */
+  color: #9ca3af; /* text-gray-400 default nav text color */
+  font-size: 0.75rem; /* text-xs */
+  font-weight: 400; /* font-normal */
+  width: 100%; /* Ensure links take full width for padding */
+}
+.admin-sidebar-nav-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem; /* space-y-1 */
+  text-decoration: none;
+  color: inherit; /* Inherit color from parent nav */
+  padding: 0.25rem 0; /* Add some vertical padding for better click area */
+  position: relative; /* For message badge */
+  transition: all 0.2s ease;
+}
+.admin-sidebar-nav-link:hover {
+  background-color: #f3f4f6; /* hover:bg-gray-100 */
+  color: #1f2937; /* text-gray-900 */
+  transform: scale(1.02);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+.admin-sidebar-nav-link.active {
+  background-color: #e0f2fe; /* bg-blue-100 */
+  color: #2563eb; /* text-blue-600 */
+  font-weight: 600;
+}
+.admin-sidebar-nav-link i {
+  /* color: #9ca3af; text-gray-400 set on parent */
+  font-size: 1.125rem; /* text-lg */
+}
+.admin-sidebar-link-text {
+  font-size: 10px; /* text-[10px] */
+}
+/* Specific text colors from HTML */
+.admin-sidebar-link-text.dashboard { color: #d1d5db; /* text-gray-300 */ }
+.admin-sidebar-link-text.messages { color: #fbcfe8; /* text-pink-300 approx */ }
+
+.message-badge {
+  position: absolute;
+  top: -0.25rem; /* -top-1 */
+  right: -0.5rem; /* -right-2, adjust for icon-only layout */
+  font-size: 8px; /* text-[8px] */
+  background-color: #fbcfe8; /* bg-pink-300 */
+  color: white;
+  border-radius: 9999px; /* rounded-full */
+  padding: 0 5px; /* px-[5px] */
+  font-weight: 600; /* font-semibold */
+  line-height: 1.2; /* Adjust for better vertical centering */
+}
+
+.admin-sidebar-user-avatar {
+  border-radius: 9999px; /* rounded-full */
+}
+.admin-sidebar-user-name {
+  color: #6b7280; /* text-gray-500 */
+  font-size: 10px; /* text-[10px] */
+  font-weight: 600; /* font-semibold */
+}
+.admin-sidebar-user-role {
+  color: #9ca3af; /* text-gray-400 */
+  font-size: 8px; /* text-[8px] */
+}
+.admin-sidebar-logout-button {
+  color: #9ca3af; /* text-gray-400 */
+  font-size: 1.125rem; /* text-lg */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem; /* Add some padding for easier click */
+}
+.admin-sidebar-logout-button:hover {
+  color: #4b5563; /* hover:text-gray-600 */
+}
+
+/* Styles for expanded sidebar (when not icon-only) - Apply this class to .admin-sidebar */
+/* .admin-sidebar.expanded {
+  width: 14rem; /* sm:w-56 */
+/* } */
+/* .admin-sidebar.expanded .admin-sidebar-top-section,
+.admin-sidebar.expanded .admin-sidebar-bottom-section {
+  align-items: flex-start; /* sm:items-start */
+/* padding-left: 1rem; /* sm:px-4 */
+/* padding-right: 1rem;
+} */
+/* .admin-sidebar.expanded .admin-sidebar-logo-img {
+  margin-left: 0; /* Remove mx-auto */
+/* } */
+/* .admin-sidebar.expanded .admin-sidebar-nav-link {
+  flex-direction: row; /* Display icon and text side-by-side */
+/* align-items: center;
+  gap: 0.75rem; /* space-x-3 equivalent for expanded */
+/* padding: 0.5rem 0.75rem; /* px-3 py-2 for expanded */
+/* } */
+/* .admin-sidebar.expanded .admin-sidebar-link-text {
+  display: inline;
+  font-size: 0.875rem; /* sm:text-base for expanded */
+/* } */
+/* .admin-sidebar.expanded .message-badge {
+  right: 0.75rem; /* right-3 for expanded */
+/* top: 0.5rem; /* top-2 for expanded */
+/* } */
+
+/* Alternative: Use media queries to expand sidebar if it's always expanded on sm+ */
+@media (min-width: 640px) { /* sm: */
+  .admin-sidebar {
+    width: 14rem; /* sm:w-56 */
+  }
+  .admin-sidebar-top-section,
+  .admin-sidebar-bottom-section {
+    align-items: flex-start; /* sm:items-start */
+    padding-left: 1rem; /* sm:px-4 */
+    padding-right: 1rem;
+  }
+  .admin-sidebar-logo-img {
+    margin-left: 0; /* Remove mx-auto for alignment */
+  }
+  .admin-sidebar-nav-link {
+    flex-direction: row; /* Display icon and text side-by-side */
+    align-items: center;
+    gap: 0.75rem; /* space-x-3 equivalent for expanded */
+    padding: 0.5rem 0.75rem; /* px-3 py-2 for expanded */
+  }
+  .admin-sidebar-link-text {
+    display: inline; /* Show text */
+    font-size: 0.875rem; /* sm:text-base for expanded */
+  }
+  .admin-sidebar-nav-link i {
+      width: auto; /* Allow icon to take its natural width */
+      margin-right: 0.5rem; /* Add some space between icon and text */
+  }
+   .message-badge {
+    position: static; /* Reset absolute positioning */
+    margin-left: auto; /* Push to the right */
+    /* Adjust padding/size if needed for expanded view */
+    padding: 0.1rem 0.3rem;
+    font-size: 0.65rem;
+  }
+}

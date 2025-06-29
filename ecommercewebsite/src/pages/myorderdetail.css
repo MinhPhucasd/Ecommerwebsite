@@ -1,0 +1,229 @@
+/* src/pages/myorderdetail.css */
+.order-detail-container {
+    max-width: 960px;
+    /* Hoặc kích thước bạn muốn */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.order-detail-header,
+.order-detail-footer {
+    /* Style chung cho header/footer nếu bạn không dùng component chung */
+    padding: 20px 0;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 20px;
+}
+
+.order-detail-footer {
+    border-top: 1px solid #e0e0e0;
+    border-bottom: none;
+    margin-top: 40px;
+}
+
+.page-breadcrumb {
+    font-size: 0.9rem;
+    color: #7D8184;
+    margin-bottom: 2rem;
+}
+
+.page-breadcrumb .separator {
+    margin: 0 0.5rem;
+}
+
+.page-breadcrumb a {
+    text-decoration: none;
+    color: #7D8184;
+}
+
+.page-breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.order-detail-main h2,
+.order-detail-main h3 {
+    margin-top: 0;
+    font-weight: 500;
+}
+
+.order-detail-main h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.order-detail-main h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.5rem;
+}
+
+.order-summary-header {
+    margin-bottom: 2rem;
+}
+
+.order-summary-header p {
+    font-size: 0.9em;
+    color: #555;
+}
+
+.order-sections-wrapper section {
+    margin-bottom: 2.5rem;
+    padding: 1.5rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    background-color: #fdfdfd;
+}
+
+.order-item-card {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.order-item-card:last-child {
+    border-bottom: none;
+}
+
+.order-item-image {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    margin-right: 15px;
+    border-radius: 3px;
+}
+
+.order-item-details {
+    flex-grow: 1;
+}
+
+.order-item-details .item-name {
+    font-weight: 500;
+    color: #333;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 3px;
+}
+
+.order-item-details .item-name:hover {
+    color: #DB4444;
+}
+
+.order-item-details .item-variant {
+    font-size: 0.8em;
+    color: #777;
+    display: block;
+}
+
+.order-item-details .item-qty-price {
+    font-size: 0.85em;
+    color: #555;
+    margin-top: 3px;
+}
+
+.order-item-subtotal {
+    font-weight: 500;
+    min-width: 80px;
+    /* Cho cột subtotal đều nhau */
+    text-align: right;
+}
+
+
+.shipping-payment-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.shipping-details-card p,
+.payment-details-card p,
+.order-totals-card p {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.shipping-details-card p:first-of-type,
+.payment-details-card p:first-of-type {
+    /* Tên người nhận, payment method */
+    font-weight: 500;
+}
+
+.order-totals-card .total-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px dashed #eee;
+}
+
+.order-totals-card .total-row:last-child {
+    border-bottom: none;
+}
+
+.order-totals-card .total-row.grand-total p {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.order-totals-card .discount-row p {
+    color: green;
+}
+
+.order-totals-card .points-row p {
+    color: #007bff;
+}
+
+
+.status-history-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.status-history-item {
+    padding: 8px 0;
+    border-bottom: 1px dotted #eee;
+    font-size: 0.9em;
+}
+
+.status-history-item:last-child {
+    border-bottom: none;
+}
+
+.status-timestamp {
+    color: #555;
+}
+
+.status-updated-by {
+    font-style: italic;
+    color: #777;
+}
+
+/* Tái sử dụng class order-status từ MyOrdersPage.css nếu bạn đã có */
+.order-status {
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.status-pending {
+    background-color: #ffe0b2;
+    color: #e65100;
+}
+
+/* ... (thêm các style status khác) ... */
+.status-delivered {
+    background-color: #c8e6c9;
+    color: #1b5e20;
+}
+
+.order-detail-loading,
+.order-detail-error,
+.order-detail-not-found {
+    text-align: center;
+    padding: 3rem;
+    font-size: 1.1em;
+}
